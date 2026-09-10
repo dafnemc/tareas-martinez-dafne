@@ -179,8 +179,6 @@
             </div>
             <span class="form-message" id="message"></span>
             <button class="form-button" id="Enviado" type="button">Enviar</button>
-
-              <span class="form-message" id="message"></span>
             <button class="form-button" id="Cancelar" type="button">Cancelar</button>
             </div>
          </form>   
@@ -189,15 +187,42 @@
 </body>
 
 <script>
-document.getElementById('Enviado').addEventListener('click', (event) => {
-    event.preventDefault();
-    let Nombre = document.getElementById('Nombre').value;
-    let Gmail = document.getElementById('Gmail').value;
-    let Numero = document.getElementById('Numero').value;
 
-    document.getElementById('message').textContent = 
-        'Hola ' + Nombre;
-});
+
+document.getElementById('Enviado').addEventListener('click', () => {
+    
+    event.preventDefault();   //frena con una funcion la propagacion
+
+
+let Nombre = document.getElementById('Nombre');
+let Gmail = document.getElementById('Gmail');
+let Tel = document.getElementById('Numero');
+
+let Message = document.getElementById('message');
+//[2,3,4,5,6,4,3,2,3]
+//[0,1,2,3,4,5,6,7,8]
+
+if(Nombre.value == '' || Gmail.value == '' || Tel.value == ''){      //===: evalua que tipo es     ||: si nombre esta vacio O correo esta vacio O telefono esta vacio 
+    message.innerText='falto rellenar';
+    message.style.color='red';
+    message.style.border = '2px solid red';
+}else{
+message.innerText = 'Tu formulario esta completo';
+message.style.color= 'green';
+}
+
+
+})
+
+//document.getElementById('Enviado').addEventListener('click', (event) => {
+  //  event.preventDefault();
+   // let Nombre = document.getElementById('Nombre').value;
+    //let Gmail = document.getElementById('Gmail').value;
+    //let Numero = document.getElementById('Numero').value;
+
+    //document.getElementById('message').textContent = 
+      //  'Hola ' + Nombre;
+//});
 
 </script>
 
